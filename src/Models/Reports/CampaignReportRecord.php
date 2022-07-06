@@ -168,6 +168,16 @@ final class CampaignReportRecord extends Model
     public $attributedSales30dSameSKU;
 
     /**
+     * @var int
+     */
+    public $attributedDetailPageView14d;
+
+    /**
+     * @var int
+     */
+    public $viewableImpressions;
+
+    /**
      * An array of types to cast values to on object creation.
      *
      * The property to cast is the key and the type to cast to is the value.
@@ -206,5 +216,7 @@ final class CampaignReportRecord extends Model
         'attributedSales7dSameSKU'        => PrimitiveType::FLOAT,
         'attributedSales14dSameSKU'       => PrimitiveType::FLOAT,
         'attributedSales30dSameSKU'       => PrimitiveType::FLOAT,
+        'attributedDetailPageView14d'     => PrimitiveType::INT,
+        'viewableImpressions'             => PrimitiveType::INT,
     ];
 }
