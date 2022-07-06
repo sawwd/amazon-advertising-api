@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PowerSrc\AmazonAdvertisingApi\Models\RequestParams;
 
 use PowerSrc\AmazonAdvertisingApi\Enums\ReportSegment;
+use PowerSrc\AmazonAdvertisingApi\Enums\ReportCreativeType;
 use PowerSrc\AmazonAdvertisingApi\Exceptions\InvalidMetricListTypeException;
 use PowerSrc\AmazonAdvertisingApi\Models\Lists\ReportMetricsList;
 use function get_class;
@@ -18,9 +19,10 @@ abstract class ReportParams extends RequestParams
      * @var array
      */
     protected $params = [
-        'segment'    => null,
-        'reportDate' => null,
-        'metrics'    => null,
+        'segment'      => null,
+        'creativeType' => null,
+        'reportDate'   => null,
+        'metrics'      => null,
     ];
 
     /**
@@ -29,9 +31,10 @@ abstract class ReportParams extends RequestParams
      * @var array
      */
     protected $map = [
-        'segment'    => 'setSegment',
-        'reportDate' => 'setReportDate',
-        'metrics'    => 'setMetrics',
+        'segment'      => 'setSegment',
+        'creativeType' => 'setCreativeType',
+        'reportDate'   => 'setReportDate',
+        'metrics'      => 'setMetrics',
     ];
 
     /**
@@ -71,6 +74,18 @@ abstract class ReportParams extends RequestParams
     public function setSegment(ReportSegment $segment): self
     {
         $this->params['segment'] = $segment;
+
+        return $this;
+    }
+
+    /**
+     * @param ReportCreativeType $creativeType
+     *
+     * @return ReportParams
+     */
+    public function setCreativeType(ReportCreativeType $creativeType): self
+    {
+        $this->params['creativeType'] = $creativeType;
 
         return $this;
     }
